@@ -22,6 +22,7 @@
     "dev": "bun scripts/remotion.ts dev",
     "storyboard": "bun scripts/storyboard.ts",
     "tts": "bun scripts/tts.ts",
+    "ai33": "bun scripts/ai33.ts",
     "from": "bun scripts/from.ts",
     "ingest": "bun scripts/ingest.ts",
     "cut": "bun scripts/cut.ts",
@@ -33,9 +34,14 @@
     "normalize": "bun scripts/normalize.ts",
     "encode": "bun scripts/encode.ts",
     "preview": "bun scripts/preview.ts",
+    "studio:build": "bun desktop/build-ui.ts",
+    "studio": "bun run studio:build && bun desktop/studio-server.ts",
     "satellite": "bun scripts/satellite.ts",
     "geo": "bun scripts/geo.ts",
-    "check": "bun scripts/check-boundaries.ts && tsc --noEmit"
+    "check": "bun scripts/check-boundaries.ts && tsc --noEmit",
+    "search": "bun scripts/search.ts",
+    "fal": "bun scripts/fal.ts",
+    "gemini-video": "bun scripts/gemini-video.ts"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.2",

@@ -9,9 +9,9 @@
    sentence about people and events can go to footage.
 2. **Anchor each window to a SENTENCE of the real TTS**, never to hand-typed frame
    numbers. One video re-ran TTS three times in a day and the footage followed.
-3. **Every window shows provenance on a bottom line**: place, source, year, licence,
-   and that source has a record in `sources.json`. Footage shot elsewhere says so
-   (`KING X · STOCKHOLM`), so nobody reads it as the city in the story.
+3. **Record provenance separately**: place, source, year and licence go in
+   `sources.json` and the hand-off, not on the frame. Choose footage that does not
+   misleadingly imply a different location or event; make the story accurate.
 4. **Never overlap two pieces of footage.** One ends, the main visual shows for a beat,
    the next starts.
 5. **Cut vertical with the subject centred.** Choose segments from a **contact sheet**

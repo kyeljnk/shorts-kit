@@ -30,7 +30,8 @@ voice that shows people about to die breaks its own voice.
 
 ## Putting it on screen
 
-- **Credit on the image, in the frame.** Descriptions get cut and copied without it.
+- **Keep credit in the separate hand-off record**, not on the image; the user
+  will decide placement during post-production and verify the licence terms.
 - **Reading time is measured** (§3): one image ≥ 5 s, two to compare ≥ 8 s. Bring the
   image in **before** the sentence about it, not on it; an image entering on the last
   sentence of a scene lives only for that sentence's tail (that is how 3.8 s happened).

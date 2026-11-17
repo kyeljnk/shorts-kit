@@ -10,10 +10,14 @@
 Default style:
 
 - **UPPERCASE, very bold**, ~64 px on a 1080-wide frame, thick dark outline.
-- **2–4 words at a time**, following the voice. Never the whole sentence.
+- **3–6 words at a time**, following the voice; short lines can contain fewer.
 - **The word being spoken is highlighted** (accent colour), no coloured box.
-- The bottom of the caption block sits **~24% of frame height above the bottom
-  edge** (≈ 460 px on a 1920 frame), clear of the platform UI.
+- Position the caption block around **one third up from the bottom**, adjusted
+  for content and checked against the current TikTok overlay on a device. In the
+  **tall 4:5 visual card layout** (`tallCardLayout`, §5), keep the same font size
+  and accent highlight style, placing the subtitle band at `y = 1590–1660`
+  (`70–90 px` below the lower info box and **260–300 px** above the bottom edge)
+  so it stays clear of TikTok's bottom caption/channel UI (`1660–1920`).
 - Proper nouns and foreign words appear **in their real spelling** (`spelling` maps
   display forms; `pronounce` only changes what is spoken: §4).
 
@@ -28,6 +32,8 @@ Numbers measured from iOS interface screenshots (the values Remotion's
 | Top UI reaches | y = 132 | y = 212 | **212** |
 | Right button column starts | x = 949, from y = 803 | x = 927, from y = 1114 | **x 927 from y 803** |
 | Platform caption area starts | y = 1749 | y = 1726 | **1726** |
+
+**Tall 4:5 editorial card layout (`tallCardLayout`, §5):** the `774×950` portrait card stack sits inside `x = 153..927` (`PANEL_MAX_W`), starts the top title box at `y = 280` (with `0–280 px` top ambient buffer clear of TikTok's `Explore/Following/For You` bar and Reels' `212 px` UI), and places subtitles at `260–300 px` from the bottom (`y = 1590–1660`) above TikTok's `260 px` bottom caption band.
 
 **Take the strictest edge of each platform, not the average**, so one layout is
 valid everywhere you post. YouTube Shorts sits inside these numbers. The
@@ -90,7 +96,9 @@ the one thing the frame can do that the voice cannot: **hold a fact still for th
 to study.** The owner caught it on stills, not in code: "why does the headline look
 so much like the captions?"
 
-On-frame text carries only what the voice does **not** say:
+The channel's first-three-second text hook is an explicit exception to the
+source-channel table below: it may summarise the spoken subject for silent
+viewers. Use further text when it supports the story and remains readable.
 
 | Allowed | Not allowed |
 | --- | --- |
@@ -110,13 +118,10 @@ one. Seven of nine scenes with valid headlines and the viewer remembers none. Th
 owner: "a headline or badge should appear only when it is data that really matters;
 printing too much confuses people."
 
-1. **At most half the scenes carry on-frame text** (`onFrameTextMaxSceneShare`).
-   More is a sign of failure, not diligence.
-2. For each headline ask: **can the ear catch this?** If yes, drop it. The ear
-   misses decimals, negatives, opposing pairs, years, foreign names, units.
-3. A headline that is a **sentence** goes, even if it copies nothing. Sentences are
-   the voice's job; the frame carries data. Kicker ≤ 25 characters, headline ≤ 6
-   words (`kickerMaxChars`, `headlineMaxWords`).
+1. Use a prominent text hook in the opening three seconds and further text as the
+   story needs; no fixed limit on the share of scenes containing text.
+2. Make text large, concise and legible, particularly for viewers without sound.
+3. Avoid covering the captions or TikTok controls; verify on a device.
 
 ### A long scene that cannot be cut: ledger details go to the frame
 
@@ -126,8 +131,7 @@ sample sizes and source names leave the voice and go on the frame. The ear canno
 follow "one hundred and thirty-seven students, fourteen days before, ten days after,
 seven weeks after"; the eye reads `137 STUDENTS · MEASURED 14 DAYS BEFORE` at a
 glance, and the line becomes "they measured before the earthquake hit." The text
-comes **from the ledger record**, it is still data not a sentence, the half-the-scenes
-limit still holds, and the number on frame still needs its caveat (§9).
+comes **from the ledger record**, and the number on frame still needs its caveat (§9).
 
 ## 7d. Counting markers carry a NAME, in the viewer's words [craft]
 

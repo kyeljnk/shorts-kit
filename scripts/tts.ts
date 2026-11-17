@@ -8,7 +8,7 @@
  * Same script and settings as the last run → no engine call (`--force` re-reads).
  * Pause or spelling changes reuse the cached reading in .cache/tts/<id>/.
  */
-import {existsSync, readdirSync, readFileSync, rmSync} from "node:fs";
+import {existsSync, readFileSync, rmSync} from "node:fs";
 import {join} from "node:path";
 import type {Voice, VoiceLine, VoiceWord} from "../src/shared/timings";
 import {ENGINES} from "./lib/engines";
@@ -50,7 +50,7 @@ const prev = existsSync(voicePath) ? (JSON.parse(readFileSync(voicePath, "utf8")
 
 console.log(`tts ${id}: engine ${engine.name}, voice ${voiceName || "(none)"}, tempo ${tempo}`);
 // §4 default engine per language: a hint only, the engine in narration.json wins
-const DEFAULT_ENGINE: Record<string, string> = {en: "edge", vi: "vieneu"};
+const DEFAULT_ENGINE: Record<string, string> = {en: "ai33", vi: "ai33"};
 const lang = (n.language ?? "").toLowerCase().split("-")[0];
 const suggested = DEFAULT_ENGINE[lang];
 if (suggested && engine.name !== suggested && engine.name !== "elevenlabs") {
@@ -69,7 +69,7 @@ if (empty) die(`scene "${empty.scene}" line ${empty.index + 1} is empty`);
 // ---------------------------------------------------------------- 1. engine
 const key = engineKey(n);
 const root = ensureDir(cacheDir(id));
-for (const d of readdirSync(root)) if (d !== key) rmSync(join(root, d), {recursive: true, force: true});
+// Keep earlier readings so restoring a script can reuse its paid AI33 tasks.
 const work = ensureDir(join(root, key));
 const manifest = join(work, "segments.json");
 let segments: Segment[];
@@ -195,7 +195,12 @@ await Bun.write(raw, new Uint8Array(all.buffer));
 ensureDir(audioDir(id));
 await must(
   "ffmpeg",
-  ["-v", "error", "-y", "-f", "f32le", "-ar", String(RATE), "-ac", "1", "-i", raw, "-c:a", "libmp3lame", "-b:a", "192k", "-ar", String(RATE), audioOut],
+  [
+    "-v", "error", "-y", "-f", "f32le", "-ar", String(RATE), "-ac", "1", "-i", raw,
+    // Tempo processing and MP3 encoding can raise peaks. Leave about 4 dB of headroom without shifting captions.
+    "-af", "alimiter=limit=0.63:level=false:latency=true",
+    "-c:a", "libmp3lame", "-b:a", "192k", "-ar", String(RATE), audioOut,
+  ],
   {timeoutMs: 120_000},
 );
 rmSync(raw, {force: true});

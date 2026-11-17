@@ -53,13 +53,14 @@ export const ShortsTemplate: React.FC<{
   palette: Palette;
   safe?: boolean;
   captions?: boolean;
+  captionFontFamily?: string;
   watermark?: string;
   music?: {src: string; volume?: number; loop?: boolean};
   /** Sound-effect cues, rendered at the root so a cue on a scene boundary is not cut. */
   sfx?: readonly SfxCue[];
   /** Drawn under every scene. Defaults to the shared Backdrop; pass null for none. */
   background?: React.ReactNode;
-}> = ({voice, fps, outroHold, scenes, palette, safe = false, captions = true, watermark, music, sfx, background}) => {
+}> = ({voice, fps, outroHold, scenes, palette, safe = false, captions = true, captionFontFamily, watermark, music, sfx, background}) => {
   const timings = sceneTimings(voice, fps, outroHold);
   for (const t of timings) {
     if (!scenes[t.id]) {
@@ -83,7 +84,7 @@ export const ShortsTemplate: React.FC<{
           </Sequence>
         );
       })}
-      {captions ? <Captions voice={voice} palette={palette} /> : null}
+      {captions ? <Captions voice={voice} palette={palette} fontFamily={captionFontFamily} /> : null}
       {watermark ? <Watermark text={watermark} palette={palette} /> : null}
       {safe ? <SafeZones /> : null}
     </AbsoluteFill>

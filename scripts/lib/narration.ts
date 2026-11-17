@@ -25,6 +25,8 @@ export type NarrationVoice = {
 };
 export type Narration = {
   id: string;
+  /** User supplied and approved the exact words; style advice cannot force a rewrite. */
+  verbatimUserScript?: boolean;
   flow: string;
   visual: string[];
   language: string;
@@ -36,14 +38,14 @@ export type Narration = {
   scenes: NarrationScene[];
 };
 
-export const DEFAULT_PAUSE = {line: 0.5, scene: 0.9};
+export const DEFAULT_PAUSE = {line: 0.2, scene: 0.3};
 
 export const loadNarration = (id: string): Narration => {
   const file = join(videoDir(id), "narration.json");
   const n = JSON.parse(readFileSync(file, "utf8")) as Narration;
   n.pause = {...DEFAULT_PAUSE, ...(n.pause ?? {})};
   n.voice = {tempo: 1, ...(n.voice ?? {engine: "say"})};
-  n.outroHold = n.outroHold ?? 3;
+  n.outroHold = n.outroHold ?? 0;
   n.scenes = n.scenes ?? [];
   return n;
 };

@@ -42,8 +42,8 @@ There is no script to write: the lines come from the recording.
 2. **Write scene by scene.** Each line is one idea; a line stating a fact carries
    `"fact": "f-xxxx"`. Hook: a number or claim in the first seconds, without
    giving away the final answer (§3c). Last line of each scene pulls into the
-   next. End on the turn that negates what the viewer believed, then a share line
-   tied to the content, not a logo or "follow for more" (§1).
+   next. End on the payoff and an open question tied to the content; cut promptly
+   and consider a natural loop into the opening (§1).
 3. **Read §3c (tension) before TTS**, not after. Re-recording costs more than
    re-reading.
 4. **Write for the engine (§4).**
@@ -54,9 +54,9 @@ There is no script to write: the lines come from the recording.
    - Silence between lines and scenes comes from `pause.line` / `pause.scene`,
      not from punctuation tricks.
 5. **Engine default by language** (§4, "Pick the engine by language"): when the
-   user has not chosen an engine, use English → `edge`, Vietnamese → `vieneu`, and
-   say which one you used. It is a default, not a rule: an engine the user picked
-   stays. If `vieneu` is not installed, give them the setup commands from the README.
+   user has not chosen an engine, use `ai33` and say which voice you used. Use
+   the Vietnamese voice configured in the template for Vietnamese; choose an
+   appropriate AI33 voice for other languages. A voice the user picked stays.
 6. **Generate the voice:**
    ```bash
    bun run tts <id>            # whole script in one request, word timestamps

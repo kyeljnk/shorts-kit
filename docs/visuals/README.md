@@ -14,7 +14,7 @@ combination in `narration.json` → `visual`, using the ids below. An empty list
 | --- | --- | --- | --- |
 | `text-as-image` | §5a | [`text-as-image.md`](text-as-image.md) | one sentence fills the frame; the camera moves inside it |
 | `timeline` | §5b | [`timeline.md`](timeline.md) | the stage is years, true to scale, vertical |
-| `archive-plate` | §5c | [`archive-plate.md`](archive-plate.md) | a real artefact, still, hard cut, provenance on frame |
+| `archive-plate` | §5c | [`archive-plate.md`](archive-plate.md) | a real artefact; provenance documented for post-production |
 | `news-photo` | §5d | [`news-photo.md`](news-photo.md) | images of the event itself, credit on the frame |
 | `gif` | §5e | [`gif.md`](gif.md) | a looping bed for rhythm; text and voice carry the facts |
 | `b-roll` | §5f | [`b-roll.md`](b-roll.md) | real footage under story sentences, anchored to the TTS |
@@ -69,5 +69,7 @@ one follows a §5 rule in code; read the rule before using it.
 | `chart/UnitGrid` | a ratio as counted things ("1 in 8") | `total` small enough to count (≤ 100) |
 | `chart/Odometer` | a year or counter rolling from A to B | the roll shows how far the number travels |
 | `frame/PipShot` | talking-head: the speaker in a corner box (card or circle), a globe, map or card behind | only for the words it illustrates; content text below the box |
+| `frame/AmbientBackdrop` | full-bleed `1080×1920` blurred duplicate of the scene image + vignette + 6% grid/dot pattern | replaces static dark gradients under visual cards (§5, `tallCardLayout`) |
+| `frame/TallCardLayout` | compact `[title (280–410) + 4:5 portrait card (428–1378, 774×950) + info (1396–1516)]` stack | inside `x = 153..927`, `y >= 280` top safe, face-first `center 20%`, Ken Burns `1.0 → 1.1`, `74 px` above subtitle (`1590–1660`) |
 
 Cue every `at` from a word of the narration (`frameAtWord`, docs/sfx.md), never a typed frame number.

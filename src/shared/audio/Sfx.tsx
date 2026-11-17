@@ -33,7 +33,7 @@ export const SFX_VOLUME = 0.7;
 export type SfxCue = {at: number; id?: SfxId; src?: string; volume?: number};
 
 /**
- * Sound effects as accents (§8): at most `sfxMaxPerVideo` per video. Render
+ * Sound effects supporting visual events (§8). Render
  * at the composition root (ShortsTemplate does), not inside a scene Sequence,
  * so an effect on a scene boundary is not cut off.
  */

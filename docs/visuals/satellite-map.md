@@ -57,8 +57,9 @@ frame a place at 9:16.
 5. **Map style matches the era of the story.** Satellite imagery is today. A story about
    1904 borders shows the border as it was (an `archive-plate` map, or vector borders
    labelled with the year), never today's satellite with an old line on it and no label.
-6. **Attribution on frame.** EOX imagery is CC BY 4.0: the `SatelliteMap` credit line stays
-   visible, and the same string goes in the pinned comment (`sk-handoff`).
+6. **Attribution in the hand-off.** Record the EOX CC BY 4.0 attribution and
+   its requirements separately for the user's post-production review; do not
+   add a credit line to the video.
 7. **Labels in the viewer's language,** placed inside the safe area (`Pin` clamps them).
 8. **Imagery is 2016.** EOX cloudless is a 2016 mosaic. If the claim is about a recent
    change (a new city, a flood), say so or use dated imagery as an `archive-plate`.

@@ -7,6 +7,43 @@ is about lives in `briefs/<id>.md`.
 
 ## This is your channel's soul
 
+### Channel direction: TikTok tech explained
+
+Make Vietnamese technology explainers that tell intriguing stories from fresh
+angles, including clearly labelled “what if X happened?” scenarios. Address
+curious general viewers with a conversational, knowledgeable editorial voice.
+Separate established facts from assumptions and speculation. Aim for 40–55 s;
+let the story determine its length. Captions are Vietnamese. AI33/Vbee Minh Quân
+is the default voice, tempo 1.15 (preferred range 1.1–1.25).
+
+At 00:00 start with a strong visual move and an attention-getting SFX; within
+the first three seconds show a large, readable text hook. Begin immediately with
+a question, surprising fact or hypothetical, never a greeting. Change something
+visible every 2–3 s while retaining gentle camera movement and readable detail;
+use pop, slide and page turns more often than fades. Fill the vertical frame using the **tall 4:5 visual card + ambient blur layout** (`tallCardLayout` in `thresholds.json`, §5/§7/§12): replace static dark gradients with a scene-synced full-bleed `AmbientBackdrop` (`blur(50px) brightness(0.25) saturate(1.3)`, vignette, 6% grid/dot pattern), expand the central photo frame to a 4:5 portrait card (`774×950 px`, `920–960 px` height, centered inside `x = 153..927` clear of the right rail, `object-fit: cover`, `object-position: center 20%`, Ken Burns zoom `1.0 → 1.1` or gentle pan), compactly stack `[Top Title Box (280–410) + 4:5 Card (428–1378) + Bottom Info Box (1396–1516)]` with `16–20 px` gaps and `70–90 px` (`74 px` default) above the subtitle band (`1590–1660`), and keep key content and subtitles clear of TikTok UI (bottom safe zone `260–300 px`).
+
+Use clear voice, rhythmic licensed music and expressive licensed SFX matched to
+visual events. Start with the user's requested approximate mix levels: voice
+−3 to −6 dBFS and background −18 to −22 dBFS; these are starting points, not
+interchangeable LUFS targets. Adjust by ear, preserve intelligibility and avoid
+clipping. Keep spoken gaps under 0.5 s, checking actual audio, not just settings.
+Use bold, high-contrast captions in 3–6-word groups around one third up from
+the bottom, highlighting key words. Check the current TikTok overlay on device.
+
+Conclude with a relevant open question that invites discussion, and cut when
+the voice ends or within 1.5–2 s. If it fits naturally, make the ending connect
+to the opening for a loop. These are creative choices, not proven guarantees of
+retention or algorithmic ranking. This channel direction overrides conflicting
+source-channel defaults elsewhere in the kit; facts, licensing and review remain.
+
+**Credits and disclaimers:** do not add credit lines, source watermarks or
+standalone disclaimer labels to the video image or narration. The user handles
+these in post-production. Keep an accurate, separate hand-off record of the
+assets actually used, their sources, licences, attribution requirements and any
+relevant caveats; flag any terms requiring a particular attribution placement.
+The delivered cut is for post-production, not automatically cleared for publishing.
+Keep claims accurate and express necessary uncertainty naturally in the story.
+
 These rules came from **one channel's measured results**: a private pipeline that
 took a new knowledge channel from zero to ~120k views on its best video in two
 months. Almost every rule exists because a published video broke it, and the
@@ -71,9 +108,8 @@ per step), [`docs/lessons/for-you-distribution.md`](docs/lessons/for-you-distrib
    the brief, **with its licence checked at that moment**. A script written around
    an image you cannot use, or around a claim nothing can show, gets rebuilt from
    scratch at scene time (§5).
-3. **End on the turn, not on a logo.** The last beat is the payoff of the script
-   (a reversal, the answer, the thing worth remembering), then a share line tied
-   to the content, then a silent hold. No logo outro, no @handle card (§1).
+3. **End on a payoff and a relevant open question.** Cut promptly; an optional
+   loop may connect the ending to the opening. No generic follow request (§1).
 
 ---
 
@@ -118,7 +154,7 @@ and ears.
       `narration.json` and the brief name the same flow
 - [ ] `bun run lint <id>` has 0 errors, and every warning was read
 - [ ] `bun run facts` is clean; every number spoken or shown has a `verified`
-      record; every `contested` fact on screen carries its caveat (§9)
+      record; any contested claim is accurately qualified in the story (§9)
 - [ ] Style pass done (§3b): no sentence over the limit, no banned phrase, no
       four-word phrase reused from another video, no colon/dash in spoken text
 - [ ] Tension pass done (§3c): the hook asks and does not answer, every scene ends
@@ -132,7 +168,7 @@ and ears.
       dashes create no pause at all (§4)
 - [ ] Strong words: count matches the channel threshold (default 0), each one is
       an exclamation at a number or situation, never at a person (§1b)
-- [ ] Ends on the turn, then a share line tied to the content, then 3–4 s hold
+- [ ] Ends on the payoff and an open question, with a prompt cut or short hold
 
 **Voice**
 - [ ] The whole TTS file was listened to end to end, and checked for loops and
@@ -143,19 +179,19 @@ and ears.
 **Frame**
 - [ ] Stills rendered with the safe-zone overlay, at least one per scene, and
       looked at; every text block sits inside the safe box (§7)
-- [ ] No on-frame text repeats the running caption; at most half the scenes carry
-      on-frame text, and each is a fact the ear cannot catch (§7)
+- [ ] A large text hook appears in the first three seconds; later text supports
+      the story and remains legible alongside captions (§7)
 - [ ] Counting markers carry the item's name in the viewer's words (§7)
 - [ ] No frame is static while the voice is talking; no shot is empty (§5, §12)
-- [ ] Every archive item shows its date and licence on frame (§5)
-- [ ] Timelines and comparisons are to true scale or say "not to scale" (§5)
+- [ ] Tall visual card scenes use `AmbientBackdrop` (`blur(50px) brightness(0.25) saturate(1.3)`, vignette, 6% grid/dot pattern), a `774×950` 4:5 portrait card (`x = 153..927`, `y = 280+` top clearance, `center 20%`, Ken Burns `1.0 → 1.1` / pan), `16–20 px` block gaps, `70–90 px` info-to-subtitle gap, and `260–300 px` bottom safe clearance (§5, §7, §12)
+- [ ] Archive provenance and licensing are recorded separately for post-production (§5)
+- [ ] Timelines and comparisons are to true scale; avoid misleading depictions (§5)
 
 **Audio**
 - [ ] Music licence recorded per track, valid on every platform you post to; a
       Content-ID-registered track has its attribution as text (§8)
-- [ ] SFX (if any): ≤ `sfxMaxPerVideo`, each cued to a word with `frameAtWord`, only on a moment the
-      facts already made funny or sharp, never on a sentence or a death toll ([`docs/sfx.md`](docs/sfx.md))
-- [ ] Music fades evenly to 0 and the last 3–4 s are a silent hold
+- [ ] Voice, licensed music and SFX are mixed clearly; SFX reinforce visual events
+- [ ] The ending cuts promptly or holds for at most 1.5–2 s; audition the mix
 - [ ] Master ≈ −13 LUFS, no clipping; voice-over-music spread above the floor (§8)
 - [ ] Total length ≤ 180 s, and ≤ the music file for a play-once bed (§8)
 
@@ -166,8 +202,8 @@ and ears.
       `+faststart`, and `ffprobe` opens it (§11)
 - [ ] Description first line is a debatable claim (≤ 100 chars), not a greeting;
       alternative counts are pre-empted (§11)
-- [ ] Every required attribution is in the pinned comment or on the end frame,
-      written verbatim from the licensor (§11)
+- [ ] Attribution requirements and caveats are in the hand-off record for the
+      user's post-production review; no credit or disclaimer is burned into the video (§11)
 - [ ] Every output lives under the video's namespace: `out/<id>/`,
       `public/audio/<id>/`: no loose files at the root of `out/` (§13)
 - [ ] After publishing: a line in the flow's "Cases run" table; a new flow rule,
@@ -182,3 +218,11 @@ not been adapted to your channel yet (`sk-pipeline` checks this at step 0).
 
 | date | rule (§) | old | new | why |
 | --- | --- | --- | --- | --- |
+| 2026-11-06 | §4 voice service | language defaults: Edge and VieNeu | AI33; Vietnamese default Vbee Minh Quân | User requested AI33. This changes voice settings only; the rest of the channel setup remains open. |
+| 2026-11-06 | §1–§12 channel direction | source-channel storytelling and timing | Vietnamese TikTok tech explained, 40–55 s, strong hook, fast visual/audio rhythm and open-question ending | User's channel brief; retain verification and licensing. |
+| 2026-11-06 | §4 tempo and pause | 1.0 tempo, 0.5/0.9 s pauses, 3 s hold | 1.15 tempo, 0.2/0.3 s pauses, 0 s hold | User requested brisk narration and an immediate cut. |
+| 2026-11-06 | §7 captions and on-frame text | 2–4 words, 24% bottom offset, text on at most half of scenes | 3–6 words, about one third up, prominent text hook and flexible text | User's TikTok layout preference. |
+| 2026-11-06 | §8 SFX and music fade | at most five SFX and nine-second music fade | SFX follow visual events; short ending fade | User requested layered, event-led sound and a prompt ending. |
+| 2026-11-06 | §5, §9, §11 credits and disclaimers | source credits or disclaimers on frame | none in video; document sources, obligations and caveats separately for user post-production | User will handle placement and review to avoid incorrect credits. |
+| 2026-11-13 | §5, §7, §12 tall visual card & ambient blur layout | static dark/green gradient backdrop + 16:9 image stage (~450–618 px tall) with wide empty space | `AmbientBackdrop` (`blur(50px) brightness(0.25) saturate(1.3)`, vignette, 6% grid/dot pattern) + `940×1040` 4:5 portrait card (`center 20%`, Ken Burns `1.0 → 1.1`), compact stack (`130–290` / `310–1350` / `1370–1510`, `16–20 px` gaps, `80 px` above `1590–1660` subtitles, `260–300 px` bottom safe zone) | User layout update (`tallCardLayout`) to fill empty vertical canvas without enlarging subtitle text and keep subtitles clear of TikTok bottom UI. |
+| 2026-11-16 | §5, §7, §7a, §12 `tallCardLayout` top & right safe clearance | `headerTopPx: 130`, `cardWidthPx: 940`, `cardHeightPx: 1040` (`130–290` / `310–1350` / `1370–1510`) | `headerTopPx: 280`, `cardWidthPx: 774`, `cardHeightPx: 950` (`280–410` / `428–1378` / `1396–1516`) | TikTok device screenshot on `dau-phu-khong-out-meta` showed `Explore/Following/For You` + search icon overlapping `130–270` and right action buttons overlapping `x > 927`. |

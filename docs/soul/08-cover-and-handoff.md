@@ -122,6 +122,11 @@ from this template (no command generates it). Exactly three parts:
 
 ## 11b. Pinned comment and attribution [hard]
 
+Channel override: the user handles credits and disclaimers in post-production.
+Keep a separate accurate draft and licence record, flag any mandatory placement
+requirements, and do not add credit lines or disclaimer labels to the video.
+Do not assume that a pinned comment alone satisfies every licence.
+
 `out/<id>/pinned-comment.txt`, written by the agent: required attributions, verbatim
 from each licensor (they often include the data year, which is part of the
 requirement), any statement of modification ("cut and looped"), and facts that did

@@ -5,10 +5,9 @@
 ## Rules
 
 - **The artefact holds still. Hard cut in, hard cut out.** No slow Ken Burns pan.
-- **Provenance on frame, mandatory**: name · **date** · holding institution and
-  shelfmark · licence. That block is the whole reason the insert exists. It sits
-  **above** the caption band.
-- **The date is mandatory, not optional** (§5).
+- **Record provenance separately:** name, date, holding institution, shelfmark
+  and licence belong in the hand-off for the user's post-production review.
+  Do not burn credit or a disclaimer into the frame.
 - **Background: light when the plate is a single insert, dark when documents are the
   plot.** A light page reads like a book page in a mostly-other video; cutting
   repeatedly between dark scenes and light plates over two minutes is a series of

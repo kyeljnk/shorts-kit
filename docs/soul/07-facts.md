@@ -33,7 +33,7 @@ research in the background, which have nobody to remind them mid-task.
 | Status | Meaning | On screen? |
 | --- | --- | --- |
 | `verified` | the source was opened and the number read there | yes |
-| `contested` | real, but sources disagree, or the common phrasing is wrong | yes, **with `caveat`**, and pre-empted in the description |
+| `contested` | real, but sources disagree, or the common phrasing is wrong | only if the story naturally and accurately conveys the caveat; also record it separately for the user's review |
 | `unverified` | nobody has checked it | **no**: lint blocks it |
 
 **A popular FALSE claim is an asset, not trash.** The payoff formula denies what the

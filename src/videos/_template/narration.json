@@ -2,14 +2,14 @@
   "id": "_template",
   "flow": "A",
   "visual": [],
-  "language": "en",
+  "language": "vi",
   "voice": {
-    "engine": "say",
-    "voice": "Samantha",
-    "tempo": 1
+    "engine": "ai33",
+    "voice": "vbee_hn_male_minhquan_yt_24k-pre",
+    "tempo": 1.15
   },
-  "pause": {"line": 0.5, "scene": 0.9},
-  "outroHold": 3,
+  "pause": {"line": 0.2, "scene": 0.3},
+  "outroHold": 0,
   "pronounce": {},
   "spelling": {},
   "scenes": [

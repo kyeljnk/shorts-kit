@@ -25,8 +25,8 @@
    pulls out), never a cut. See flows P and R.
 9. **Keep it consistent with tone.** Drawn worlds suit survival, history and fables;
    they jar beside real footage of real victims. One material per video (`b-roll` rule 10).
-10. **"Modelled after" is said.** A drawn path that follows a published model is labelled
-    as such, on frame and in the caption.
+10. **Represent models accurately.** Distinguish a model from measured data in
+    the story and record its source separately; do not add disclaimer labels.
 11. **Figures that move have a gait, not a swing.** `Figure` plants each foot for its
     stance phase and solves the knees by IK; give every moving figure the `speed` its
     `x` actually changes by per frame, or the feet slide. Check a walk on 12 to 16

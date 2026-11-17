@@ -26,7 +26,7 @@ export const die = (msg: string): never => {
 export const videoArg = (usage: string): string => {
   const id = process.argv.slice(2).find((a) => !a.startsWith("-"));
   if (!id) die(`usage: ${usage}`);
-  if (!existsSync(join(videoDir(id!), "narration.json"))) die(`no video "${id}": src/videos/${id}/narration.json does not exist`);
+  if (!existsSync(join(videoDir(id!), "narration.json")) && !existsSync(join(videoDir(id!), "entry.tsx"))) die(`no video "${id}": src/videos/${id}/narration.json does not exist`);
   return id!;
 };
 

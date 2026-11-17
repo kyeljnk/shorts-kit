@@ -76,13 +76,13 @@ if (mode === "still") {
 
 if (mode === "render") {
   const file = join(out, `${id}.mp4`);
-  await remotion(["render", relEntry, "Video", file, "--codec=h264", `--props=${props}`], 90 * MIN);
+  await remotion(["render", relEntry, "Video", file, "--codec=h264", "--hardware-acceleration=if-possible", "--concurrency=2", `--props=${props}`], 90 * MIN);
   mustExist(file, started);
   const got = await duration(file);
-  const n = loadNarration(id);
-  const want = voice ? Math.ceil((voice.duration + n.outroHold) * FPS) / FPS : NaN;
-  console.log(`+ out/${id}/${id}.mp4  ${got.toFixed(2)} s${voice ? ` (voice ${voice.duration.toFixed(2)} s + hold ${n.outroHold} s ≈ ${want.toFixed(2)} s)` : ""}`);
-  if (voice && Math.abs(got - want) > 0.25) console.warn(`! duration differs from voice + outro hold by ${(got - want).toFixed(2)} s`);
+  const n = existsSync(join(videoDir(id), "narration.json")) ? loadNarration(id) : undefined;
+  const want = voice && n ? Math.ceil((voice.duration + n.outroHold) * FPS) / FPS : NaN;
+  console.log(`+ out/${id}/${id}.mp4  ${got.toFixed(2)} s${voice && n ? ` (voice ${voice.duration.toFixed(2)} s + hold ${n.outroHold} s ≈ ${want.toFixed(2)} s)` : ""}`);
+  if (voice && n && Math.abs(got - want) > 0.25) console.warn(`! duration differs from voice + outro hold by ${(got - want).toFixed(2)} s`);
   console.log(`  Next: pull frames from the mp4 and look, then \`bun run normalize ${id}\`.`);
 }
 

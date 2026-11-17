@@ -10,9 +10,9 @@
 
 | | Default |
 | --- | --- |
-| Music bed | continuous, low under the voice, fade in, and an **even ~9 s fade to 0** at the end |
+| Music bed | rhythmic and low under the voice; match the ending and avoid a long fade |
 | Master | ≈ **−13 LUFS** integrated (`loudnessLUFS`), never above 0 dBFS (a −1 dBTP ceiling is safe) |
-| End | 3–4 s hold on the last frame with music already at 0 (`outroHold`) |
+| End | cut on the last line or use a short hold of no more than 1.5–2 s |
 
 A raw Remotion render usually sits around −20 LUFS. **Normalize before hand-off**
 (`bun run normalize <id>`), or the video plays noticeably quieter than everything
@@ -104,14 +104,12 @@ track, taking on an attribution duty for nothing).
   licence page. A file called `bgm.mp3` sat unchecked for three videos because nobody
   could tell what it was.
 
-### SFX: accents, same economics as the strong word [default]
+### SFX: expressive, event-led sound [default]
 
-- **4–5 per video at most** (`sfxMaxPerVideo`). Scattered evenly, the video turns
-  into a meme video and loses the authority the serious part built.
-- **Where the SITUATION is funny**, not where the video needs cheering up. The SFX
-  says what the viewer is already thinking.
+- Match visible text, objects and transitions with appropriate pops, paper, whooshes,
+  glitches or dings, starting at 00:00. Mix to keep speech clear; no fixed count cap.
 - **Anchored to a WORD**, not to seconds, so it follows script edits.
-- **Never over a sentence or over an exclamation**, which needs silence to land.
+- SFX may overlap narration when the words remain clear.
 - **Normalize per file.** Seven SFX files spanned −6.5 to −17.8 LUFS; one shared
   volume made one deafening and one inaudible. Target ~−20 LUFS, just under the voice.
 - **SFX licences are usually the gap.** Meme sounds (game sound effects, viral clips)

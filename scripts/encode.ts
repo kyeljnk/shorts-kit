@@ -39,7 +39,7 @@ await must(
     "-c:v", "libx264", "-profile:v", "high", "-preset", "slow", "-crf", "18",
     "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
     // ffmpeg's -color_* flags do not all reach the H.264 VUI; tell x264 directly
-    "-x264-params", "colorprim=bt709:transfer=bt709:colormatrix=bt709:fullrange=off",
+    "-x264-params", "colorprim=bt709:transfer=bt709:colormatrix=bt709:fullrange=off:threads=4",
     "-c:a", "aac", "-b:a", "192k", "-ar", rate, "-ac", "2",
     "-movflags", "+faststart",
     dst,

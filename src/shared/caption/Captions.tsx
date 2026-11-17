@@ -7,7 +7,7 @@ import type {Voice, VoiceWord} from "../timings";
 import {PANEL_LEFT, PANEL_MAX_W} from "../frame/SafeZones";
 
 /**
- * Running captions (§7): 2–4 words at a time, never across a sentence end, the
+ * Running captions (§7): 3–6 words at a time, never across a sentence end, the
  * word being spoken in `palette.accent`. The block's bottom edge sits at
  * `captionBottomShare` of the frame height above the bottom edge, inside the
  * panel width, so the last word never slides under the like column.
@@ -85,6 +85,7 @@ export const Captions: React.FC<{
   /** Distance of the caption block's bottom edge from the frame bottom, px. */
   bottom?: number;
   maxWidth?: number;
+  fontFamily?: string;
   /** Show `lines[].caption` (second language) under the main caption (§7e). */
   secondLanguage?: boolean;
 }> = ({
@@ -94,6 +95,7 @@ export const Captions: React.FC<{
   size = 66,
   bottom = Math.round(H * SOUL.captionBottomShare),
   maxWidth = PANEL_MAX_W,
+  fontFamily = FONT.sans,
   secondLanguage = true,
 }) => {
   const frame = useCurrentFrame();
@@ -123,7 +125,7 @@ export const Captions: React.FC<{
             textAlign: "center",
             transform: `scale(${pop})`,
             transformOrigin: "50% 100%",
-            fontFamily: FONT.sans,
+            fontFamily,
             fontWeight: 900,
             fontSize: size,
             lineHeight: 1.08,
@@ -155,7 +157,7 @@ export const Captions: React.FC<{
             width: PANEL_MAX_W,
             top: H - bottom + 22,
             textAlign: "center",
-            fontFamily: FONT.sans,
+            fontFamily,
             fontWeight: 600,
             fontSize: 32,
             lineHeight: 1.25,

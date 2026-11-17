@@ -2,6 +2,15 @@
 
 A kit for making narrated vertical shorts (TikTok, YouTube Shorts, Reels) with a coding agent and Remotion.
 
+For new narration, use the user's AI33 service (`voice.engine: "ai33"`). For Vietnamese, the default voice is `vbee_hn_male_minhquan_yt_24k-pre`; the user may choose another AI33 voice. The key is `AI33_API_KEY` in the local, gitignored `.env`. AI33 usage consumes credits. The engine returns line-level audio; word timings are estimated and need review.
+Channel setup is recorded in the "Channel direction" section of SOUL.md; it overrides conflicting source-channel creative defaults. AI33 task receipts persist in the TTS cache, including on `--force`, to avoid accidentally charging again; review task state before intentionally clearing a receipt for a new reading.
+
+Research and media search: `bun run search web "query"` and `bun run search images "query"` use Serper; `pexels`, `pexels-video`, `pixabay`, and `pixabay-video` search stock. Keys are in the gitignored `.env`. For specific photos or footage search Wikimedia Commons first where suitable, then these sources; check each asset's provenance and licence before use, preserve attribution, and do not assume Google Images results are licensed for reuse. Pixabay search results are cached for 24 hours.
+
+AI video generation (when needed): `bun run fal` calls Black Forest Labs FLUX 3 Max on fal.ai (`blackforestlabs/flux-3-max/text-to-video`, `image-to-video`, and `keyframes-to-video`) using `FAL_KEY` in the gitignored `.env`. Because generation is billed per second of video, `scripts/fal.ts` saves task receipts in `.cache/fal/` so interrupted runs resume polling the existing `request_id` instead of submitting duplicate jobs. Use `bun run fal check` to verify key/pricing without spending credits.
+
+Do not put credits, source watermarks, or standalone disclaimers in the video or narration: the user handles them in post-production. Keep source, licensing, attribution requirements and relevant caveats in separate hand-off records and flag placement-specific obligations. Preserve accurate, properly qualified claims in the story.
+
 **For any request to make, edit, render or hand off a short, invoke the `sk-pipeline` skill first and follow it.**
 Runtimes without a Skill tool: read `.claude/skills/sk-pipeline/SKILL.md` (also at `.agents/skills/`).
 
@@ -15,7 +24,7 @@ Open only the `docs/soul/` file for the step you are on. Exact commands per step
 
 1. **Facts before words.** No sentence is written before its claim has a `verified` record in `docs/facts/` (§9).
 2. **Visual language before the script.** Decide how each claim gets on screen, and check every image licence, before writing narration (§5).
-3. **End on the turn, not a logo.** The last beat negates what the viewer believed (§1).
+3. **End on the payoff and an open question.** Cut promptly and consider a natural loop (§1).
 
 ## Skills (`.claude/skills/`)
 

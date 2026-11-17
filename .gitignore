@@ -17,3 +17,12 @@ public/img/sat/*
 # VieNeu TTS Python env (scripts/lib/engines/vieneu.ts)
 .venv-vieneu/
 __pycache__/
+
+# Local footage and generated Windows installer files.
+/footage/
+/desktop/dist-ui/
+/desktop/launcher/target/
+/.build-installer/
+/dist-installer/
+/temp_frames/
+/temp_frame_*.png

@@ -11,8 +11,9 @@
 
 ## 1. Voice: "a serious explainer who actually knows" [default]
 
-Default voice: sound like a person who **really knows the story** and tells it tight, dry and
-with authority. Write like a short news feature, not like a status update.
+Default voice: a curious, conversational and knowledgeable Vietnamese technology
+editor. Explain exciting stories or hypothetical scenarios clearly; distinguish
+the established facts from assumptions and speculation.
 
 - **Short clauses, clear subjects, numbers.** Authority comes from specifics the
   viewer could check, not from adjectives they cannot.
@@ -68,13 +69,13 @@ Every flow shares a skeleton:
 
 | Block | Job |
 | --- | --- |
-| Hook (~3–10 s) | A question plus one concrete number or image, inside the first 3 seconds. No greeting. |
+| Hook (first 3 s) | Start at 00:00 with strong motion and SFX; show a large topic hook. Ask a question, state a surprising fact or introduce a hypothetical. No greeting. |
 | Body | The flow's beats (see below). |
 | Payoff | Adds one thing not said yet: a consequence, a reversal, or the answer to the hook's question. |
-| Share | One sentence inviting the viewer to send it on. |
-| Hold | 3–4 s on the last frame after the final word, music already at zero. |
+| Closing question | A relevant open question inviting discussion; an existing scene named `share` may serve this purpose. |
+| Hold | Cut on the last word when practical, or use a short hold up to 1.5–2 s. |
 
-- **The share line: pick one form and keep it verbatim.** The source channel ran
+- **Historical source-channel share line, superseded by the closing question:** The source channel ran
   three slightly different wordings of the same generic line across videos, none
   written on purpose: they drifted. A formula sentence that drifts trains the ear
   on a slightly different rhythm each time. Content-tied lines ("send this to the

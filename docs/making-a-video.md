@@ -29,6 +29,7 @@ from the absence of an error. Three silent-failure shapes that really happened:
 | `bun run ingest <id> <file> [--lang vi] [--prompt "…"]` | recorded voice (§5j): normalise a take or a recording, Whisper transcript, proposed cuts |
 | `bun run cut <id> [--propose --force]` | apply `cuts.json` → `public/audio/<id>/voice.mp3` (same place as TTS; + `public/footage/<id>/cut.mp4` for talking-head), `voice.json`, lines in `narration.json` |
 | `bun run lint <id>` | machine checks from `thresholds.json` + narration + facts |
+| `bun run ai33 check` | verify AI33 connectivity and the `.env` key without spending credits |
 | `bun run facts` | validate `docs/facts/*.json` |
 | `bun run still <id> [--frame=N]` | render `out/<id>/still-<frame>.png` |
 | `bun run render <id>` | render `out/<id>/<id>.mp4` |

@@ -188,10 +188,10 @@ once read with the wrong voice.
 user has not chosen an engine, use this and tell them which one and why. An engine
 they chose stays.
 
-- English (`en-*`): **`edge`**. Free, no key, good English voices, word timings from
-  the service.
-- Vietnamese (`vi`): **`vieneu`**. Free, offline, native Vietnamese voices. Online
-  voices misread Vietnamese and Latin names (see the locale profile below).
+- Use **`ai33`** as requested by the user. For Vietnamese, start with
+  `vbee_hn_male_minhquan_yt_24k-pre`; choose a suitable AI33 voice for other languages.
+  AI33 consumes credits, and its line-level audio needs word-timing review.
+- `edge` and `vieneu` remain alternatives when the user selects them.
 - Either language, when quality matters more than cost: `elevenlabs`.
 - `say` (macOS) is only for testing offline. Do not publish with it.
 
@@ -200,6 +200,7 @@ differ from this default.
 
 | `engine` | Cost | Notes |
 | --- | --- | --- |
+| `ai33` | provider credits, `AI33_API_KEY` in `.env` | AI33 v3; one task per line, estimated word timings; task receipts support resuming without duplicate charges |
 | `edge` (English) | free, no key | online Microsoft voices; good English; retry on empty streams |
 | `elevenlabs` | per character, `ELEVENLABS_API_KEY` in `.env` | `with-timestamps` gives per-character timing from the same request, so no recogniser is needed; use a model that lists your language; do not send its own speed setting |
 | `vieneu` (Vietnamese) | free, offline, local Python env `.venv-vieneu` | Vietnamese (VieNeu-TTS v3 Turbo, 48 kHz, Apache-2.0); `voice` is a preset name or a 3–8 s reference `.wav`; `model` is `v3turbo` or `v3nano`; one file per line, no word timestamps (words spread over the line); setup in the README |

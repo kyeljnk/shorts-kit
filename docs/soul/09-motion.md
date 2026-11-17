@@ -7,6 +7,10 @@
 
 ## 12. Motion rules
 
+For this channel, start with a strong move at 00:00, then change a meaningful
+visual element every 2–3 seconds while a gentle camera move continues. Use pop,
+slide or page-turn entrances more often than fades. Keep facts and text readable.
+
 "No frame stands still" (§3) was only words while the easing helper every shot used
 was a smoothstep, whose **derivative is zero at both ends**. Every move in every
 video landed at exactly zero speed and sat there for the rest of the sentence.
@@ -48,8 +52,12 @@ video landed at exactly zero speed and sat there for the rest of the sentence.
 - **Cheap texture**: film grain (`feTurbulence`, low opacity, new seed per frame) and
   a vignette make a flat gradient read as an *image* rather than a slide. Depth comes
   from **different parallax factors** per layer (e.g. 0.18 / 0.45 / 0.9): the eye
-  measures the ratio between layers, not absolute motion. Avoid full-frame `blur()`
-  at 1080×1920; it multiplies render time for no visible gain.
+  measures the ratio between layers, not absolute motion. Avoid redundant full-frame `blur()` on static or decorative overlays because it
+  multiplies render time; the tall-card layout (§5, `tallCardLayout`) explicitly
+  uses a single scene-synced `AmbientBackdrop` (`blur(50px) brightness(0.25) saturate(1.3)`)
+  with a subtle grid/dot texture (`opacity: 0.06`) and vignette to replace flat
+  gradients, plus continuous Ken Burns zoom (`1.0 → 1.1`) or gentle pan on the
+  4:5 portrait card.
 
 ## 12a. Shots anchored to words
 

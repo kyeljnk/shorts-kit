@@ -37,7 +37,7 @@ const footage = (rawNarration.voice as {engine?: string} | undefined)?.engine ==
  * Writing-style rules block a script but only warn on a recorded voice: the fix
  * there is a cut or a re-take, never a rewrite of what was said.
  */
-const styleErr = (m: string) => (footage ? warn(`${m} [recorded: cut it or re-record; the words cannot be rewritten]`) : err(m));
+const styleErr = (m: string) => (footage ? warn(`${m} [recorded: cut it or re-record; the words cannot be rewritten]`) : rawNarration.verbatimUserScript ? warn(`${m} [user-approved verbatim script]`) : err(m));
 
 // ------------------------------------------------------------------ schema
 if (rawNarration.id !== id) err(`narration.json id is "${rawNarration.id}", folder is "${id}" (§13)`);
@@ -52,6 +52,8 @@ if (!ENGINES[n.voice.engine] && n.voice.engine !== FOOTAGE_ENGINE) err(`voice.en
 const [holdMin, holdMax] = T.outroHoldSeconds as [number, number];
 if (n.outroHold < holdMin || n.outroHold > holdMax) warn(`outroHold ${n.outroHold} s is outside ${holdMin}–${holdMax} s${ref("outroHoldSeconds")}`);
 if (!(n.pause.line >= 0) || !(n.pause.scene >= 0)) err("pause.line and pause.scene must be seconds ≥ 0 (§4)");
+if (n.pause.line > T.maxNarrationGapSeconds || n.pause.scene > T.maxNarrationGapSeconds) warn(`declared narration pause exceeds ${T.maxNarrationGapSeconds} s; also listen for silence within generated lines (§4)`);
+if (!footage && n.voice.tempo !== undefined && (n.voice.tempo < T.voiceTempoRange[0] || n.voice.tempo > T.voiceTempoRange[1])) warn(`voice tempo ${n.voice.tempo} is outside ${T.voiceTempoRange.join("–")} (§4)`);
 
 const scenes = n.scenes;
 if (!scenes.length) err("no scenes");
@@ -68,7 +70,7 @@ for (const s of scenes) {
   });
 }
 if (scenes.length && scenes[0].id !== "hook") warn(`first scene is "${scenes[0].id}", not "hook" (§2)`);
-if (scenes.length && scenes[scenes.length - 1].id !== "share") warn(`last scene is "${scenes[scenes.length - 1].id}", not "share": end on the turn, then a share line (§1)`);
+// A final open question can live in any scene, including an existing "share" beat.
 
 const lines = flatLines(n);
 const sceneText = (sid: string) => n.scenes.find((s) => s.id === sid)?.lines.map((l) => l.text).join(" ") ?? "";

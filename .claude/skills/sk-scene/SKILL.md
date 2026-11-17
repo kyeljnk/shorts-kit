@@ -17,7 +17,7 @@ The § wins over this file.
 ```
 src/videos/<id>/  entry.tsx  <Name>.tsx  scenes.tsx  Cover.tsx  timing.ts  narration.json  voice.json
 src/shared/       theme.ts font.ts timings.ts
-                  frame/ (ShortsTemplate, SafeZones, SafeCheck, Watermark, Backdrop)
+                  frame/ (ShortsTemplate, SafeZones, SafeCheck, Watermark, Backdrop, AmbientBackdrop, TallCardLayout)
                   caption/ (Captions, TypeStage)  audio/ (BackgroundMusic, Sfx)  motion/ (anim)
 ```
 
