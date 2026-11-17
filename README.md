@@ -13,7 +13,7 @@ winget install -e --id OpenJS.NodeJS.LTS
 winget install -e --id Gyan.FFmpeg
 ```
 
-Đóng rồi mở lại PowerShell để nhận PATH mới. Đăng nhập bằng tài khoản GitHub đã được cấp quyền vào repo. Chạy các lệnh sau từ thư mục anh/chị muốn lưu bộ công cụ.
+Đóng rồi mở lại PowerShell để nhận PATH mới. Chạy các lệnh sau từ thư mục anh/chị muốn lưu bộ công cụ.
 
 ```powershell
 git clone --branch noi-bo https://github.com/kyeljnk/shorts-kit.git
@@ -80,7 +80,7 @@ Codex viết `caption.txt`, `pinned-comment.txt` và ghi chú nguồn/bản quy�
 
 ## Chia sẻ trong phòng
 
-- Chủ repo mời thành viên qua **Settings → Collaborators**. Mỗi người đăng nhập GitHub bằng tài khoản đã được mời rồi clone repo lên máy.
+- Mọi người có thể clone repo công khai hoặc chọn **Code → Download ZIP** trên GitHub. Nếu tải ZIP, giải nén rồi chạy các lệnh từ `bun install --frozen-lockfile` trong thư mục đã giải nén.
 - Khi cập nhật bộ công cụ, chạy `git pull --ff-only` từ thư mục clone rồi chạy lại `bun install --frozen-lockfile`.
 - Giữ khóa API, footage gốc và bản xuất trong khu vực được phòng cấp quyền. Khi góp thay đổi vào bộ công cụ, chỉ thêm tệp đã rà soát vào commit. Gửi bản xuất qua nơi bàn giao của phòng.
 
