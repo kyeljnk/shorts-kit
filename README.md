@@ -1,6 +1,6 @@
-# Shorts Kit Studio
+# Shorts Kit
 
-Bộ công cụ cho phòng nội dung làm video dọc có lời dẫn cho TikTok, YouTube Shorts và Reels. Dùng Codex hoặc Claude Code để kiểm chứng dữ kiện, viết kịch bản, lên storyboard và dựng cảnh bằng Remotion. Dùng Studio để cấu hình giọng đọc, duyệt bản dựng và xuất video.
+Bộ công cụ làm video dọc có lời dẫn cho TikTok, YouTube Shorts và Reels. Mở thư mục dự án trong Codex để kiểm chứng dữ kiện, viết kịch bản, lên storyboard và xuất video bằng Remotion.
 
 ## Cài đặt trên Windows
 
@@ -21,16 +21,13 @@ cd shorts-kit
 bun install --frozen-lockfile
 Copy-Item .env.example .env
 bun run check
-bun run studio
 ```
 
-Mở [Shorts Kit Studio](http://127.0.0.1:7788/) trong trình duyệt. Giữ PowerShell mở trong lúc sử dụng. Nếu cổng 7788 đang bận, chạy `bun run studio --port 7789` và mở [cổng 7789](http://127.0.0.1:7789/).
-
-Trên macOS hoặc Linux, cài [Git](https://git-scm.com/downloads), [Bun](https://bun.sh/), [Node.js LTS](https://nodejs.org/) và [FFmpeg](https://ffmpeg.org/download.html). Dùng `cp .env.example .env` thay cho `Copy-Item` và `bun run preview` để mở bảng duyệt trên trình duyệt.
+Trên macOS hoặc Linux, cài [Git](https://git-scm.com/downloads), [Bun](https://bun.sh/), [Node.js LTS](https://nodejs.org/) và [FFmpeg](https://ffmpeg.org/download.html). Dùng `cp .env.example .env` thay cho `Copy-Item`.
 
 ### Cấu hình giọng đọc
 
-Trong Studio, mở **Cài đặt** và nhập khóa AI33 được cấp cho công việc, hoặc điền `AI33_API_KEY` vào tệp `.env` trên máy. Giọng mặc định cho dự án tiếng Việt là Vbee Minh Quân (`vbee_hn_male_minhquan_yt_24k-pre`). Kiểm tra kết nối bằng `bun run ai33 check`. Lệnh kiểm tra không tiêu credit, còn tạo lời đọc bằng `bun run tts <id>` có tính credit. Giữ `.env` và thư mục `.cache/` trên máy. Các biên nhận trong cache giúp tiếp tục tác vụ đã gửi khi cần chạy lại.
+Mở tệp `.env` trong thư mục `shorts-kit` và điền khóa AI33 được cấp cho công việc vào dòng `AI33_API_KEY=`. Giọng mặc định cho dự án tiếng Việt là Vbee Minh Quân (`vbee_hn_male_minhquan_yt_24k-pre`). Kiểm tra kết nối bằng `bun run ai33 check`. Lệnh kiểm tra không tiêu credit, còn tạo lời đọc bằng `bun run tts <id>` có tính credit. Giữ `.env` và thư mục `.cache/` trên máy. Các biên nhận trong cache giúp tiếp tục tác vụ đã gửi khi cần chạy lại.
 
 | Khóa tùy chọn trong `.env` | Dùng khi |
 | --- | --- |
@@ -42,12 +39,12 @@ Trong Studio, mở **Cài đặt** và nhập khóa AI33 được cấp cho côn
 
 ## Làm video đầu tiên
 
-1. Mở **chính thư mục `shorts-kit`** trong Codex (hoặc Claude Code). Gửi đề bài kèm đối tượng xem, nền tảng, thời lượng và nguồn hoặc footage đã có. Ví dụ:
+1. Mở **chính thư mục `shorts-kit`** trong Codex. Codex đọc [AGENTS.md](AGENTS.md) để chạy quy trình của bộ công cụ. Gửi đề bài kèm đối tượng xem, nền tảng, thời lượng và nguồn hoặc footage đã có. Ví dụ:
 
    > Làm video TikTok 45 giây bằng tiếng Việt về lý do ảnh chụp đêm hay bị nhòe. Dùng quy trình Shorts Kit. Cho tôi duyệt nguồn, kịch bản và storyboard trước khi dựng.
 
 2. Duyệt các dữ kiện và quyền sử dụng ảnh/footage. Duyệt kịch bản trước khi tạo lời đọc, nghe lại lời đọc và xem storyboard trước khi dựng cảnh. Các dự án nằm trong `src/videos/<id>/`. Quy ước nội dung và trình bày của phòng nằm trong [SOUL.md](SOUL.md).
-3. Quay lại Studio để kiểm tra tiến độ và xuất video, hoặc dùng các lệnh bên dưới. Xem lại chữ, phụ đề, vùng an toàn và nghe âm thanh trên bản xuất trước khi đăng.
+3. Khi đã duyệt bản dựng, yêu cầu Codex xuất MP4, ảnh bìa và nội dung đăng. Xem lại chữ, phụ đề, vùng an toàn và nghe âm thanh trên bản xuất trước khi đăng.
 4. Lấy MP4, ảnh bìa và nội dung đăng trong `out/<id>/`. Người phụ trách đăng video thủ công và xử lý ghi nguồn theo hồ sơ bàn giao.
 
 Nếu đã có lời thu hoặc footage, gửi đường dẫn tệp hoặc thư mục đó cho Codex. Chế độ chép lời và cắt tự động qua `bun run from` cần thêm [whisper.cpp](https://github.com/ggml-org/whisper.cpp), lệnh `whisper-cli` trên PATH và model `ggml-large-v3-turbo.bin` trong `.cache/whisper/`. Nghe lại tên riêng, con số và các điểm cắt trước khi duyệt. Xem [hướng dẫn làm việc với footage](docs/visuals/talking-head.md).

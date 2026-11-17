@@ -34,8 +34,6 @@
     "normalize": "bun scripts/normalize.ts",
     "encode": "bun scripts/encode.ts",
     "preview": "bun scripts/preview.ts",
-    "studio:build": "bun desktop/build-ui.ts",
-    "studio": "bun run studio:build && bun desktop/studio-server.ts",
     "satellite": "bun scripts/satellite.ts",
     "geo": "bun scripts/geo.ts",
     "check": "bun scripts/check-boundaries.ts && tsc --noEmit",

@@ -1,8 +1,0 @@
-[package]
-name = "shorts-kit-studio"
-version = "0.1.0"
-edition = "2021"
-
-[[bin]]
-name = "ShortsKit"
-path = "src/main.rs"
